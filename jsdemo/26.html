@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 写了一个业务代码，扩展当前的业务代码
+        function say(a, b) {
+            console.log('say', a, b);
+        }
+        // 给某个方法 添加一个方法并在他执行之前调用
+        Function.prototype.before = function(callback) {
+            return (...args) => { // 剩余运算符， 箭头函数没有this（向上找） 也没有arguments (return一个函数)
+                callback(); //执行传过来的匿名函数
+                this(...args); // 执行this。可以暂时理解谁调用的this就指向谁：say.before  say调用的所以say指向say-
+            }
+        }
+        let beforeSay = say.before(function() {
+                console.log('before say')
+            }) //将返回的函数赋值给beforeSay (参数函数)
+        beforeSay('hello', 'world');
+    </script>
+</body>
+
+</html>

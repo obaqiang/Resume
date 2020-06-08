@@ -1,0 +1,31 @@
+body {
+  -webkit-animation: cool 2s forwards;
+          animation: cool 2s forwards;
+}
+
+body div {
+  color: red;
+}
+
+@-webkit-keyframes cool {
+  0% {
+    background: red;
+    opacity: 0.2;
+  }
+  100% {
+    background-color: #111111;
+    opacity: 1;
+  }
+}
+
+@keyframes cool {
+  0% {
+    background: red;
+    opacity: 0.2;
+  }
+  100% {
+    background-color: #111111;
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=12.css.map */

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let myMap = new Map();
+
+        let keyObj = {};
+        let keyFunc = function() {};
+        let keyString = 'a string';
+
+        // 添加键
+        myMap.set(keyString, "和键'a string'关联的值");
+        myMap.set(keyObj, "和键keyObj关联的值");
+        myMap.set(keyFunc, "和键keyFunc关联的值");
+
+        myMap.size; // 3
+    </script>
+</body>
+
+</html>

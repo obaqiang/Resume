@@ -1,0 +1,17 @@
+body {
+    animation: cool 2s forwards;
+    div {
+        color: red;
+    }
+}
+
+@keyframes cool {
+    0% {
+        background: red;
+        opacity: 0.2;
+    }
+    100% {
+        background-color: rgb(17, 17, 17);
+        opacity: 1;
+    }
+}

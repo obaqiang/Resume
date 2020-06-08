@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function curry(fn) {
+            // console.log(fn)
+            if (fn.length <= 1) {
+                return fn
+            }
+            const generator = (...args) => {
+                console.log('这里')
+                console.log(args)
+                if (fn.length === args.length) {
+                    return fn(...args)
+                } else {
+                    return (...args2) => {
+                        return generator(...args, ...args2)
+                    }
+                }
+            }
+            return generator
+        }
+        let add = (a, b, c, d) => a + b + c + d
+        const myadd = curry(add)
+        console.log(myadd)
+        console.log(myadd(5, 6, 7, 8))
+    </script>
+</body>
+
+</html>

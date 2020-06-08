@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.mian{
+			width: 100vw;
+			height: 100vh;
+		}
+		.main div{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100vw;
+			height: 100vh;
+			font-size: 50px;
+			position: absolute;
+			transition: 2s;
+			backface-visibility: hidden;
+			 /* transform-style: preserve-3d; */
+			
+		}
+		.main div:nth-child(1){
+			/* rotateY:0deg; */
+			background-color: blue;
+			transform: rotateY(0deg);
+		}
+		.main div:nth-child(2){
+			transform: rotateY(180deg);
+			background-color: red;
+		}
+		.main:hover div:nth-child(1){
+			/* background-color: red; */
+			transform: rotateY(180deg);
+		}
+		
+		.main:hover div:nth-child(2){
+			/* background-color: red; */
+			transform: rotateY(0deg);
+		}
+	</style>
+	<body>
+		<div class="main">
+			<div class="login">
+				这是login
+			
+			</div>
+			<div class="register">
+				这是register
+			</div>
+		</div>
+	</body>
+</html>

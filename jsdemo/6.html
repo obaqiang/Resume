@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let map = new Map
+        // let arr = [2, 3, 4]
+        // arr.forEach((item, index) => {
+        //     map.set(index, item)
+        // })
+        // console.log(map)
+
+
+        // function calTwo(arr, target) {
+        //     arr.forEach((item, index) => {
+        //         map.set(index, index)
+        //         let k = target - item
+        //         if (map.has(k)) {
+        //             return map.get(k)
+        //         }
+        //     })
+        // }
+        var twoSum = function(nums, target) {
+            let map = new Map()
+            for (let i = 0; i < nums.length; i++) {
+                let k = target - nums[i]
+                if (map.has(k)) {
+                    return [map.get(k), i]
+                }
+                map.set(nums[i], i)
+            }
+            return [];
+        };
+        let res = twoSum([2, 3, 4, 5, 6], 7)
+        console.log(res)
+    </script>
+</body>
+
+</html>

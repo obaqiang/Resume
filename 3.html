@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			function Father(){}
+			Father.prototype.lastname = '等'
+			function Son(){}
+			function inherit(target,origin){
+				function F(){}
+				F.protype = Father.prototype
+				target.protype = new F()
+			}
+			Son.prototype = Father.prototype
+			var son = new Son()
+			// console.log(son.prototype.lastname)
+		</script>
+	</body>
+</html>

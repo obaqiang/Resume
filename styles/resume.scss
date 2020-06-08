@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css?family=Lora:400,400i,700");
+body {
+    display: flex;
+    flex-direction: column;
+    // height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient( rgba(16, 16, 16, 0.8), rgba(16, 16, 16, 0.8)), url(https://i.loli.net/2019/11/03/RtVq2wxQYySDb8L.jpg);
+    background-size: cover;
+}
+
+p {
+    margin: 0em 5em 4em 5em;
+}
+
+h1,
+p {
+    text-align: left;
+    line-height: 1.8;
+    font-family: Lora, serif;
+    margin: 0;
+}
+
+.glowIn {
+    color: white;
+    span {
+        animation: glow-in 0.8s both;
+    }
+}
+
+@keyframes glow-in {
+    from {
+        opacity: 0;
+    }
+    65% {
+        opacity: 1;
+        text-shadow: 0 0 25px white;
+    }
+    75% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.7;
+    }
+}
+
+.container {
+    width: 80vw;
+    // height: 80vh;
+    border: 1px solid #ffffff;
+    margin: 20px auto;
+    color: #ffffff;
+    box-shadow: 0 0 10px #ffffff;
+}
+
+.area_a {
+    display: flex;
+    padding: 20px;
+    .a_a {
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        p:nth-child(1) {
+            font-size: 30px;
+        }
+    }
+    .a_b {
+        width: 50vw;
+    }
+}
+
+.area_b {
+    padding: 20px;
+}
+
+.progress-title {
+    font-size: 10px;
+    // font-weight: 700;
+    color: #ffffff;
+    // margin: 0 0 10px;
+}
+
+.progress {
+    height: 20px;
+    background: #fff;
+    border-top: 5px solid #1c2647;
+    border-bottom: 5px solid #1c2647;
+    border-radius: 0;
+    margin-bottom: 25px;
+    overflow: visible;
+    position: relative;
+}
+
+.progress:before,
+.progress:after {
+    content: "";
+    width: 5px;
+    background: #1c2647;
+    position: absolute;
+    top: 0;
+    left: -5px;
+    bottom: 0;
+}
+
+.progress:after {
+    left: auto;
+    right: -5px;
+}
+
+.progress .progress-bar {
+    border: none;
+    box-shadow: none;
+    -webkit-animation: 2s linear 0s normal none infinite running progress-bar-stripes, animate-positive 1s;
+    animation: 2s linear 0s normal none infinite running progress-bar-stripes, animate-positive 1s;
+}
+
+@-webkit-keyframes animate-positive {
+    0% {
+        width: 0;
+    }
+}
+
+@keyframes animate-positive {
+    0% {
+        width: 0;
+    }
+}

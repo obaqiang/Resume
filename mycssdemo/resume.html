@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/htmleaf-demo.css">
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/resume.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="area_a">
+            <div class="a_a">
+                <p class="glowIn">XX</p>
+                <p class="glowIn">应聘岗位：前端开发</p>
+            </div>
+            <div class="a_b">
+                <p class="glowIn">年龄：29</p>
+                <p class="glowIn">联系电话：13032119695</p>
+                <p class="glowIn">邮箱：13032119695@163.com</p>
+                <p class="glowIn">学历：本科</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="area_b">
+            <p class="glowIn">专业技能</p>
+            <h3 class="progress-title glowIn">HTML5 Css Javascipt - 90%</h3>
+            <div class="progress">
+                <div class="progress-bar progress-bar-danger progress-bar-striped active" style="width:90%;"></div>
+            </div>
+            <h3 class="progress-title glowIn">Vue Element Vuex Axios - 80%</h3>
+            <div class="progress">
+                <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:80%;"></div>
+            </div>
+            <h3 class="progress-title glowIn">微信小程序 WXML WXSS - 80%</h3>
+            <div class="progress">
+                <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:90%;"></div>
+            </div>
+            <h3 class="progress-title">J-Query Bootstrap Weex Mui Echarts- 70%</h3>
+            <div class="progress">
+                <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:50%;"></div>
+            </div>
+            <h3 class="progress-title glowIn">Node.js Mysql Egg.js - 50%</h3>
+            <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:50%;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="area_b">
+            <p class="glowIn">工作经历</p>
+            <p class="glowIn">2020-04 ~ 至今 苏州享药智能</p>
+            <p class="glowIn">2018-11 ~ 2020-03 上海何庄科技有限公司</p>
+            <p class="glowIn">2016-11 ~ 2018-11 苏州无线科技网络有限公司</p>
+            <p class="glowIn">2015-05 ~ 2016-11 上海信想商贸有限公司</p>
+        </div>
+    </div>
+
+    <script>
+        let glowInTexts = document.querySelectorAll(".glowIn");
+        glowInTexts.forEach(glowInText => {
+            let letters = glowInText.textContent.split("");
+            glowInText.textContent = "";
+            letters.forEach((letter, i) => {
+                let span = document.createElement("span");
+                span.textContent = letter;
+                span.style.animationDelay = `${i * 0.05}s`;
+                glowInText.append(span);
+            });
+        });
+    </script>
+</body>
+
+</html>

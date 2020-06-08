@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = [1, 2, 3, 4]
+        let b = [2, 2, 3, 4]
+        let c = [2, 3, 4, 5, 6, 7]
+
+        function cal(...args) {
+            return [...new Set(args.reduce((result, arg) => {
+                return result.filter(item => arg.includes(item))
+            }))]
+        }
+
+        function Do(...args) {
+            console.log(args)
+
+        }
+        // console.log(cal(a, b, c))
+        Do(a, b, c)
+    </script>
+</body>
+
+</html>

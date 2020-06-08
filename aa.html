@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.out{
+			width: 100px;
+			height: 100px;
+			margin: 200px auto;
+			border: 1px solid #dddddd;
+			position: relative;
+			transform:perspective(900px) rotateY(45deg) rotateX(45deg);
+			transform-style: preserve-3d;
+			transition: 2s;
+		}
+		.out:hover{
+			transform: rotateY(360deg);
+			transform-origin: center center; 
+		}
+		.in{
+			width: 100px;
+			height: 100px;
+			/* border:1px solid red; */
+			background: red;
+			position: absolute;
+			transition: 2s;
+			transform: translateX(0px);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #ffffff;
+			font-size: 50px;
+			
+		}
+		.in:nth-child(2){
+			transform: translateZ(100px);
+		}
+		.in:nth-child(3){
+			transform: rotateY(-90deg);
+			transform-origin: top left; 
+		}
+		.in:nth-child(4){
+			transform: rotateY(90deg);
+			transform-origin: right left; 
+		}
+	</style>
+	<body>
+
+		<div class="out">
+			<div class="in">
+				1
+			</div>
+			<div class="in">
+				2
+			</div>
+			<div class="in">
+				3
+			</div>
+			<div class="in">
+				4
+			</div>
+			<div class="in">
+				5
+				
+			</div>
+			<div class="in">
+				6
+			</div>
+		</div>
+	</body>
+</html>

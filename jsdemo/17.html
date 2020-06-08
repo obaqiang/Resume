@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const box = {
+            x: 10,
+            y: 20,
+            z: {
+                a: 1
+            }
+        }
+        Object.freeze(box)
+        box.z.a = 2
+        console.log(box)
+    </script>
+</body>
+
+</html>

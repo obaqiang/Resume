@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const selfMap = function(fn, context) { //context指上面的thisValue
+            let arr = Array.prototype.slice.call(this) //map方法不会改变原数组
+            let mappedArr = new Array()
+            for (let i = 0; i < arr.length; i++) {
+                if (!arr[i].hasOwnProperty) { //如果是稀疏数组，就跳出当前循环
+                    continue
+                }
+                mappedArr[i] = fn.call(context, arr[i], i, this)
+            }
+            return mappedArr
+        }
+
+        console.log(selfMap.call([1, 2, 3], (a) => a * 2))
+    </script>
+</body>
+
+</html>

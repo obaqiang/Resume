@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Private() {
+				let b = 123
+				this.b = b
+
+				this.changeB=function() {
+					b = '23232323'
+
+				}
+
+				this.sayB=function() {
+					console.log(b)
+				}
+
+
+			}
+			let obj = new Private()
+			
+		</script>
+	</body>
+</html>

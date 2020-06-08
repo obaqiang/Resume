@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let template = '{{name}}很厉害，才{{age}}岁'
+        let context = {
+            name: '卧槽',
+            age: '14'
+        }
+
+        function Render(tem, con) {
+            return tem.replace(/\{\{(.*?)\}\}/g, (match, key) => {
+                console.log(match)
+                con[key.trim()]
+            })
+        }
+        // Render(template, context)
+        console.log(Render(template, context))
+    </script>
+</body>
+
+</html>

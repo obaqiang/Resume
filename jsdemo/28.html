@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 100vw;
+        height: 120vh;
+        background-color: red;
+    }
+</style>
+
+<body>
+    <div></div>
+    <script>
+        function debounce(fn, wait) {
+            var timeout = null;
+            console.log('得到')
+            console.log(timeout)
+            return function() {
+                if (timeout !== null) {
+                    console.log('jinlai')
+                    clearTimeout(timeout); //如果timeout有值，就清除定时器
+                }
+
+                timeout = setTimeout(fn, wait);
+                console.log(123)
+            }
+        }
+        // 处理函数
+        function handle() {
+            console.log(Math.random());
+        }
+        // 滚动事件
+        window.addEventListener('scroll', debounce(handle, 1000));
+
+
+
+        // let a = setTimeout(() => {
+        //     console.log(123)
+        // }, 1000)
+        // clearTimeout(a)
+        // clearTimeout(a)
+        // clearTimeout(a)
+    </script>
+</body>
+
+</html>

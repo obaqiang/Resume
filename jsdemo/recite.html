@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1：给定两个数组，编写要给函数来计算他们的交集
+        let funA = function(nums1, nums2) {
+                return [...new Set(nums1.filter((item) => {
+                    nums2.includes(item)
+                }))]
+            }
+            // 2:求多个数组之间的交集
+        var funcB = function(...args) {
+            if (args.length === 0) {
+                return []
+            }
+            if (args.length === 1) {
+                return args[0]
+            }
+            return [...new Set(args.reduce((result, arg) => {
+                return result.filter((item) => arg.includes(item))
+            }))]
+        }
+
+        function Try(...args) {
+            return [...new Set(args.reduce((arr, cur) => {
+                return arr.filter((item) => item.includes(cur))
+            }))]
+        }
+
+        // 3:手写扁平化方法
+        // 判断是否是数组（注意给初始值[]）
+        // 是数组进行递归(注意要放在[]中)
+        // 不是直接抛出
+        function flattenDeep(arr) {
+            return Array.isArray(arr) ? arr.reduce((acc, cur) => [...acc, ...flattenDeep(cur)], []) : [arr]
+        }
+
+
+
+
+        function flatTen(arr) {
+
+        }
+        // 4:手写一个new
+        function _new(fn, ...args) { // ...args为ES6展开符,也可以使用arguments
+            //先用Object创建一个空的对象,
+            const obj = Object.create(fn.prototype) //fn.prototype代表 用当前对象的原型去创建
+                //现在obj就代表Dog了,但是参数和this指向没有修改
+            const rel = fn.apply(obj, args)
+                //正常规定,如何fn返回的是null或undefined(也就是不返回内容),我们返回的是obj,否则返回rel
+            return rel instanceof Object ? rel : obj
+        }
+
+        let template = '{{}}'
+            // 5:实现一个简单模板字符串替换
+
+        function Render(template, context) {
+            return template.replace(/\{\{.*?\}\}/g, (match, key) => {
+                context[key.trim()]
+            })
+        }
+
+
+
+        //6： 函数柯里化
+        // 将一个带有多个参数的函数转换为一次一个的函数的过程。每次调用函数时，它只接受一个参数，并返回一个函数，直到传递所有参数为止。
+        var currying = function(fn) {
+            var args = [];
+
+            return function() {
+                if (arguments.length === 0) {
+                    return fn.apply(this, args); // 没传参数时，调用这个函数
+                } else {
+                    [].push.apply(args, arguments); // 传入了参数，把参数保存下来
+                    return arguments.callee; // 返回这个函数的引用
+                }
+            }
+        }
+
+
+        // 7：apply
+        // 定义：apply接受两个参数，第一个参数指定了函数体内this对象的指向，第二个参数为一个带有下标的集合，这个集合可以为数组，也可以为类数组，apply方法把这个集合中的元素作为参数传递给调用的函数。
+
+        // 8:稀疏数组
+        var arr = new Array(3); //数组没有元素，但是length是3
+
+
+        // 9：循环实现数组map方法
+
+        // 9-1：map用法
+        // let arr = array.map(function(currentValue, index, arr), thisValue)
+
+        const selfMap = function(fn, context) { //context指上面的thisValue
+                let arr = Array.prototype.slice.call(this) //map方法不会改变原数组
+                let mappedArr = new Array()
+                for (let i = 0; i < arr.length; i++) {
+                    if (!arr[i].hasOwnProperty) { //如果是稀疏数组，就跳出当前循环
+                        continue
+                    }
+                    mappedArr[i] = fn.call(context, arr[i], i, this) //arr[i], i, this指上述function 中的三个参数
+                }
+                return mappedArr
+            }
+            // 注意：map 的第二个参数为第一个参数回调中的 this 指向，如果第一个参数为箭头函数，那设置第二个 this 会因为箭头函数的词法绑定而失效
+            // 另外就是对稀疏数组的处理，通过 hasOwnProperty 来判断当前下标的元素是否存在与数组中(感谢评论区的朋友)
+
+        // 10：使用 reduce 实现数组 map 方法
+        // 10-1：reduce用法
+        // let arr = array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+        const selfMap2 = function(fn, context) {
+            let arr = Array.prototype.slice.call(this) //map方法不会改变原数组
+            return arr.reduce((pre, cur, index) => {
+                return [...pre, fn.call(context, cur, index, this)] //注意这里返回[]
+            }, [])
+        }
+
+
+        // 11:循环实现数组 filter 方法
+
+
+        // 12:reduce实现filter方法
+        const selffilter2 = function(fn, context) {
+            let arr = Array.prototype.slice.call(this) //将有length属性的对象转为数组
+            return arr.reduce((pre, cur, index) => {
+                return fn.call(context, cur, index, this) ? [...pre, cur] : [...pre]
+            }, [])
+        }
+
+
+        // 13:循环实现数组的some方法
+        const selfSome = function(fn, context) {
+            let arr = Array.prototype.slice.call(this)
+            if (!arr.length) {
+                return false
+            }
+            for (let i = 0; i < arr.length; i++) {
+                if (!arr.hasOwnProperty(i)) {
+                    continue
+                }
+                let res = fn.call(conttext, arr[i], i, this)
+                if (res) {
+                    return true
+                }
+            }
+            return false
+        }
+    </script>
+</body>
+
+</html>

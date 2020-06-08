@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background: #000000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    .sword {
+        border-left: 1px solid #ffffff;
+        border-right: 1px solid #ffffff;
+        display: inline-block;
+        color: #ffffff;
+        display: flex;
+        animation: move 2s;
+        width: 50%;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .sword span {
+        flex: 1;
+        animation: movespan 2s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
+        transform: scale(0);
+        opacity: 0;
+        /* display: inline-block; */
+        /* position: absolute;
+        width: 2em; */
+    }
+    
+    @keyframes move {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 50%;
+        }
+    }
+    
+    @keyframes movespan {
+        0% {
+            transform: scale(0);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+</style>
+
+<body>
+    <div class="sword">sword the world</div>
+    <script>
+        let text = document.querySelector(".sword");
+        console.log(text)
+        let arr = text.textContent
+        arr = arr.split("")
+        text.textContent = ""
+
+        console.log(arr)
+        let delay = 0.3;
+        let middle = arr.filter(e => e !== " ").length / 2;
+        console.log(middle)
+        arr.forEach((element, i) => {
+            let span = document.createElement('span')
+
+            span.style.animationDelay = `${delay + Math.abs(i - middle) * 0.1}s`;
+            span.textContent = element
+                // span.style =
+            text.append(span)
+        });
+    </script>
+</body>
+
+</html>

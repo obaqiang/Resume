@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.blend-me {
+		  position: relative;
+		  color: rgba(#d3ffd3, 1);
+		  //color: transparent;
+		  //-webkit-text-stroke: 5px #d3ffd3;
+		  text-align: center;
+		  font-size: 20vw;
+		  font-weight: bold;
+		  mix-blend-mode: overlay;
+		  transition: 0.3s cubic-bezier(0.250, 0.250, 0.330, 1.330);
+		  animation: moveMe 8s ease-out infinite alternate;
+		}
+		
+		@keyframes moveMe {
+		  to {
+		    transform: translateY(500px);
+		  }
+		}
+		
+		body {
+		  min-height: 100vh;
+		  display: flex;
+		  justify-content: center;
+		  background: linear-gradient(rgba(#000, 0.3), rgba(#000, 0.3)), url('https://images.unsplash.com/photo-1536147210925-5cb7a7a4f9fe?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ');
+		  background-size: cover;
+		  font-family: Roboto, sans-serif;
+		}
+	</style>
+	<body>
+		<div class="circle"></div>
+		<p>Blend Me</p>
+	</body>
+</html>

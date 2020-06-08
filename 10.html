@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var bar = {a:'002'}
+			function print(){
+				bar.a = 'a'
+				Object.prototype.b = 'b'
+				return function inner(){
+					console.log(bar.a)
+					console.log(bar.b)
+				}
+			}
+			print()()
+			console.log(bar)
+		</script>
+	</body>
+</html>
